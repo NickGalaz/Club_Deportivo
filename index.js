@@ -81,9 +81,6 @@ http
 
             fs.writeFileSync('./archivos/deportes.json', JSON.stringify(data));
             res.writeHead(200).end("Deporte borrado!!");
-        } else {
-            res.writeHead(404).end("Recurso no encontrado.");
-        }
-
+        } 
     })
     .listen(port, () => console.log('Servidor corriendo en puerto:', port))
