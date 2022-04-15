@@ -36,7 +36,7 @@ http
             deportes.push(deporte);
 
             fs.writeFileSync('./archivos/deportes.json', JSON.stringify(data));
-            res.end();
+            res.writeHead(201).end("Deporte creado!");
         }
 
 
@@ -65,7 +65,7 @@ http
             })
 
             fs.writeFileSync('./archivos/deportes.json', JSON.stringify(data));
-            res.end();
+            res.writeHead(201).end("Deporte actualizada!!");
         }
 
         // Ruta para borrar registros del archivo deportes.json
@@ -80,7 +80,9 @@ http
             })
 
             fs.writeFileSync('./archivos/deportes.json', JSON.stringify(data));
-            res.end();
+            res.writeHead(200).end("Deporte borrado!!");
+        } else {
+            res.writeHead(404).end("Recurso no encontrado.");
         }
 
     })
